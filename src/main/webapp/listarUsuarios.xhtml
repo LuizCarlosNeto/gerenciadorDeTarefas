@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+   xmlns:f="http://java.sun.com/jsf/core"  >
+<h:head>
+
+<title>Insert title here</title>
+</h:head>
+
+<h:body>
+
+<h:form id="formEditar">
+
+ <p:menubar>
+ <p:submenu label="Opções de Usuario" icon=" icon-users" >
+ <p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml"/>
+ <p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml"/>
+ </p:submenu>
+ </p:menubar>
+ 
+<p:dataTable var="usuario" value="#{usuarioView.listaUsuarios}">
+  <p:column headerText="Nome ">
+        <h:outputText value="#{usuario.nomeUsuario}" />
+    </p:column>
+      <p:column headerText="Senha ">
+        <h:outputText value="#{usuario.senha}" />
+    </p:column>
+      <p:column headerText="Email ">
+        <h:outputText value="#{usuario.email}" />
+    </p:column>
+    <p:column headerText="Atualizar ">
+        <p:commandLink value="Atualizar" action="exibirUsuario.xhtml" > 
+        <f:setPropertyActionListener target="#{usuarioView.usuario}" value="#{usuario}"/>
+        </p:commandLink>
+        
+    </p:column>
+    <p:column headerText="Deletar ">
+        <p:commandLink value="Deletar" action="deletarUsuario.xhtml" > 
+        <f:setPropertyActionListener target="#{usuarioView.usuario}" value="#{usuario}"/>
+        </p:commandLink>
+        
+    </p:column>
+     
+
+</p:dataTable>
+
+
+</h:form>
+
+</h:body>
+</html>

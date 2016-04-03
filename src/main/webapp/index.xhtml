@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<title>Login</title>
+</h:head>
+<h:body>
+	<h:form id="formLogin">
+	
+	
+		<p:growl id="growl" showDetail="true" sticky="true" />
+
+		<div align="center">
+			<p:spacer height="100px;" />
+
+			<p:panel header="Login" style="width:350px;height:200px;">
+
+				
+				<h:panelGrid columns="2" columnClasses="label, value">
+
+
+					<h:outputText value="Usuario " />
+					<h:inputText value="#{usuarioView.usuario.nomeUsuario}" />
+
+					<h:outputText value="Senha" />
+					<h:inputSecret value="#{usuarioView.usuario.senha}" />
+					
+					<p:commandButton value="login" style="left:50px; width:100px;height:39px;" action="#{usuarioView.getBuscarUsuarioLogin}" update="formLogin"/>
+				</h:panelGrid>
+
+			</p:panel>
+		</div>
+
+	</h:form>
+
+
+</h:body>
+
+</html>

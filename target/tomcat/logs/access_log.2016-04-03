@@ -1,0 +1,4 @@
+127.0.0.1 - - [03/Apr/2016:00:24:45 -0300] "GET /listarUsuarios.xhtml HTTP/1.1" 200 3950 http-bio-7070-exec-1 2254
+127.0.0.1 - - [03/Apr/2016:00:24:49 -0300] "POST /listarUsuarios.xhtml HTTP/1.1" 200 4614 http-bio-7070-exec-2 222
+127.0.0.1 - - [03/Apr/2016:00:25:00 -0300] "GET /listarUsuarios.xhtml HTTP/1.1" 200 3952 http-bio-7070-exec-3 18
+127.0.0.1 - - [03/Apr/2016:00:25:18 -0300] "POST /listarUsuarios.xhtml HTTP/1.1" 200 3409 http-bio-7070-exec-4 83

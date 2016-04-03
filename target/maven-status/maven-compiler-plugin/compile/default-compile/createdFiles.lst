@@ -1,0 +1,7 @@
+br/com/fip/webII/view/UsuarioView.class
+br/com/fip/webII/view/testeee.class
+br/com/fip/webII/business/UsuarioBusiness.class
+br/com/fip/webII/gerenciadorDeTarefas/App.class
+br/com/fip/webII/dao/UsuarioDao.class
+br/com/fip/webII/util/HibernateFactory.class
+br/com/fip/webII/bean/Usuario.class
