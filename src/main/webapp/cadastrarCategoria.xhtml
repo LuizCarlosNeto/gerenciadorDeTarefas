@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:title></h:title>
+</h:head>
+<h:body>
+	<h:form id="formCadastroCategoria">
+
+		<p:menubar>
+			<p:submenu label="Opções de Usuario" icon="icon-users">
+				<p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml" />
+				<p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml" />
+			</p:submenu>
+			<p:submenu label="Opções de Categoria" icon="icon-tasks">
+				<p:menuitem value="Cadastrar Categoria" url="cadastrarCategoria.xhtml" />
+				<p:menuitem value="Listar Categorias" url="listarCategorias.xhtml" />
+			</p:submenu>
+		</p:menubar>
+
+		<p:tab id="dados" title="Dados Cadastrais">
+			<p:panel header="Cadastro de Categoria">
+				<p:growl id="mensagens" />
+				<h:panelGrid columns="2" columnClasses="label, value">
+					<h:outputText value="Nome *" />
+					<p:inputText value="#{categoriaView.categoria.nome}"
+						required="true" label="Nome" />
+					<p:commandButton value="Cadastrar"
+						actionListener="#{categoriaView.getSalvarCategoria}"
+						update="formCadastroCategoria" />
+				</h:panelGrid>
+			</p:panel>
+		</p:tab>
+	</h:form>
+</h:body>
+</html>
