@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://java.sun.com/jsf/html"
-  xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
 <h:head>
-<h:title>Gerenciador de Tarefas</h:title>
+
 </h:head>
 <h:body>
-<h:form>
+	<h:form>
 
- <p:menubar>
- <p:submenu label="Opções de Usuario" icon=" icon-users" >
- <p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml"/>
- <p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml"/>
- </p:submenu>
- </p:menubar>
- 
- <div align="center" >
- 
- <h1>Seja Bem vindo</h1>
- </div>
+		<p:menubar >
+			<p:submenu label="Opções de Usuario" icon="icon-users">
+				<p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml" />
+				<p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml" />
+			</p:submenu>
+			<p:submenu label="Opções de Categoria" icon="icon-tasks">
+				<p:menuitem value="Cadastrar Categoria"
+					url="cadastrarCategoria.xhtml" />
+				<p:menuitem value="Listar Categorias" url="listarCategorias.xhtml" />
+			</p:submenu>
+		</p:menubar>
 
-</h:form>
+		<div align="center">
+
+			<h1>Seja Bem vindo</h1>
+		</div>
+
+	</h:form>
 </h:body>
 </html>

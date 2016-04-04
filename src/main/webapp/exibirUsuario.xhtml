@@ -10,12 +10,18 @@
 
 <h:body>
 <h:form id="idUpdate">
- <p:menubar>
- <p:submenu label="Opções de Usuario" icon=" icon-users" >
- <p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml"/>
- <p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml"/>
- </p:submenu>
- </p:menubar>
+		
+			<p:menubar>
+			<p:submenu label="Opções de Usuario" icon="icon-users">
+				<p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml" />
+				<p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml" />
+			</p:submenu>
+			<p:submenu label="Opções de Categoria" icon="icon-tasks">
+				<p:menuitem value="Cadastrar Categoria" url="cadastrarCategoria.xhtml" />
+				<p:menuitem value="Listar Categorias" url="listarCategorias.xhtml" />
+			</p:submenu>
+		</p:menubar>
+
 <p:growl id="mensagem"/>
 <p:panel>
 <h:panelGrid columns="2">
@@ -28,6 +34,7 @@
 <p:commandButton value="Atualizar" actionListener="#{usuarioView.getAtualizarUsuario}" update="idUpdate"/>
 </h:panelGrid>
 </p:panel>
+
 
 </h:form>
 </h:body>

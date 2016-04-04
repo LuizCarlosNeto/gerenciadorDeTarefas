@@ -11,13 +11,18 @@
 <h:body>
 <h:form id="formCadastroUsuario">
 
- <p:menubar>
- <p:submenu label="Opções de Usuario" icon=" icon-users" >
- <p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml"/>
- <p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml"/>
- </p:submenu>
  
- </p:menubar>
+			<p:menubar>
+			<p:submenu label="Opções de Usuario" icon="icon-users">
+				<p:menuitem value="Cadastrar Usuario" url="cadastrarUsuario.xhtml" />
+				<p:menuitem value="Listar Usuarios" url="listarUsuarios.xhtml" />
+			</p:submenu>
+			<p:submenu label="Opções de Categoria" icon="icon-tasks">
+				<p:menuitem value="Cadastrar Categoria" url="cadastrarCategoria.xhtml" />
+				<p:menuitem value="Listar Categorias" url="listarCategorias.xhtml" />
+			</p:submenu>
+		</p:menubar>
+
 
 <p:tab id="dados" title="Dados Cadastrais">
 
