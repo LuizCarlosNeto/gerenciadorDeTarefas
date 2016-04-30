@@ -12,38 +12,29 @@ import javax.faces.context.FacesContext;
 
 import br.com.fip.webII.bean.Usuario;
 import br.com.fip.webII.business.UsuarioBusiness;
+import br.com.fip.webII.facade.UsuarioFacade;
 
 @ManagedBean
 @SessionScoped
 public class UsuarioView {
 	
-	private String login;
-	private String senha;
+	
 	private Usuario usuario;
 	private List<Usuario> listaUsuarios;
 	
 	public UsuarioView() {
-		login = "";
-		senha ="fodase";
+	
 		usuario = new Usuario();
 		listaUsuarios =  new ArrayList<>();
 	}
 
-
-	public Usuario getUsuario() {
-		
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 	
 	public String getSalvarUsuario() {
 		
 		try {
 			Logger.getAnonymousLogger().info("eneehehehtrou metodo salvar j");
 
-			new UsuarioBusiness().salvarUsuario(usuario);
+			new UsuarioFacade().salvar(usuario);
 			FacesContext context = FacesContext.getCurrentInstance();
 	         
 	        context.addMessage(null, new FacesMessage("Usuario Salvo com sucesso") );
@@ -77,7 +68,7 @@ public class UsuarioView {
 	public String getDeletarUsuario() {
 		String result = "";
 		try {
-			new UsuarioBusiness().deletar(this.usuario);
+			new UsuarioFacade().deletar(this.usuario);
 			FacesContext context = FacesContext.getCurrentInstance();
 	         
 	        context.addMessage(null, new FacesMessage("Usuario deletado com sucesso") );
@@ -98,7 +89,7 @@ public class UsuarioView {
 			FacesContext context = FacesContext.getCurrentInstance();
 	         
 	        context.addMessage(null, new FacesMessage("Usuario atualizado com sucesso") );
-	        listaUsuarios = new UsuarioBusiness().getUsuarios();
+	        listaUsuarios = new UsuarioFacade().listar();
 	        usuario = new Usuario();
 			
 		} catch (Exception e) {
@@ -110,13 +101,13 @@ public class UsuarioView {
 	
 	public boolean getLoginUsuario() {
 		
-		return  new UsuarioBusiness().getUsuario(usuario.getNomeUsuario(), usuario.getSenha());
+		return  new UsuarioFacade().getUsuario(usuario.getNomeUsuario(), usuario.getSenha());
 	}
 	
 	
 	
 	public List<Usuario> getListaUsuarios() {
-		listaUsuarios = new UsuarioBusiness().getUsuarios();
+		listaUsuarios = new UsuarioFacade().listar();
 		return listaUsuarios;
 	}
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
@@ -125,7 +116,14 @@ public class UsuarioView {
 	
 	 @PostConstruct
 	public void init() {
-		 listaUsuarios = new UsuarioBusiness().getUsuarios();
+		 listaUsuarios = new UsuarioFacade().listar();
+	}
+	 
+	 public Usuario getUsuario() {
+		return usuario;
+	}
+	 public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	 
 	

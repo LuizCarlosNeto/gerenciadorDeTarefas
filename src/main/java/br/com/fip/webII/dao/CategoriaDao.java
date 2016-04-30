@@ -16,11 +16,13 @@ public class CategoriaDao {
 
 	public void salvar(Categoria categoria) {
 		try {
+			
 			session = HibernateFactory.getSessionFactory().openSession();
 			trans = session.beginTransaction();
 			session.saveOrUpdate(categoria);
 			trans.commit();
 			session.flush();
+			session.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			trans.rollback();
@@ -57,7 +59,7 @@ public class CategoriaDao {
 
 	public void deletar(Categoria categoria) {
 		try {
-			session = HibernateFactory.getSessionFactory().getCurrentSession();
+			session = HibernateFactory.getSessionFactory().openSession();
 			trans = session.beginTransaction();
 			session.delete(categoria);
 			trans.commit();
@@ -70,7 +72,7 @@ public class CategoriaDao {
 
 	public void atualizar(Categoria categoria) {
 		try {
-			session = HibernateFactory.getSessionFactory().getCurrentSession();
+			session = HibernateFactory.getSessionFactory().openSession();
 			trans = session.beginTransaction();
 			session.update(categoria);
 			trans.commit();

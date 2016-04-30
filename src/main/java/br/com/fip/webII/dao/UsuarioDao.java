@@ -18,7 +18,7 @@ public class UsuarioDao {
 	
 	private Session session;
 	private Transaction trans;
-	//private EntityM
+	
 	
 	public void salvar(Usuario ususario) {
 		try {

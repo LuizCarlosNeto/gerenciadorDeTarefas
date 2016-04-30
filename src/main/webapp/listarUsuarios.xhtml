@@ -24,7 +24,7 @@
 				<p:menuitem value="Listar Categorias" url="listarCategorias.xhtml" />
 			</p:submenu>
 		</p:menubar>
-<p:dataTable var="usuario" value="#{usuarioView.listaUsuarios}" paginator="true"                           rowsPerPageTemplate="5,10,15">
+<p:dataTable var="usuario" value="#{usuarioView.listaUsuarios}" >
   <p:column headerText="Nome ">
         <h:outputText value="#{usuario.nomeUsuario}" />
     </p:column>
