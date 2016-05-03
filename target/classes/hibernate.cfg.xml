@@ -24,7 +24,8 @@
  
      <mapping class="br.com.fip.webII.bean.Usuario"/>
        <mapping class="br.com.fip.webII.bean.Categoria"/>
-    
+    <mapping class="br.com.fip.webII.bean.Tarefa"/>
+    <mapping class="br.com.fip.webII.bean.Projeto"/>
  
 
 </session-factory>

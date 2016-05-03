@@ -2,6 +2,10 @@ package br.com.fip.webII.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -15,19 +19,33 @@ public class CategoriaDao {
 	private Transaction trans;
 
 	public void salvar(Categoria categoria) {
+//		try {
+//			
+//			session = HibernateFactory.getSessionFactory().openSession();
+//			trans = session.beginTransaction();
+//			session.saveOrUpdate(categoria);
+//			trans.commit();
+//			session.flush();
+//			session.close();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			trans.rollback();
+//		}
+//		
 		try {
+			EntityManagerFactory factory = Persistence.createEntityManagerFactory("teste");
+
+			EntityManager manager = factory.createEntityManager();
+
+			manager.getTransaction().begin();
+			manager.persist(categoria);
+			manager.getTransaction().commit();
+			manager.close();
+
 			
-			session = HibernateFactory.getSessionFactory().openSession();
-			trans = session.beginTransaction();
-			session.saveOrUpdate(categoria);
-			trans.commit();
-			session.flush();
-			session.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			trans.rollback();
 		}
-
 	}
 
 	public List<Categoria> listar() {

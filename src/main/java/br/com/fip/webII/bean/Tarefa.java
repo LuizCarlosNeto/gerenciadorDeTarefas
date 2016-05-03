@@ -9,7 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table
@@ -24,11 +29,15 @@ public class Tarefa implements Serializable {
 	@Column(nullable = false)
 	private String descricao;
 
-	@Column(nullable = false)
-	private Object projeto;
-
+	@OneToOne
+	@JoinColumn
+	private Projeto projeto;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date estimativa;
-
+	
+	@OneToMany
+	@JoinColumn
 	private List<Usuario> usuarios;
 
 	public int getId() {
@@ -51,7 +60,7 @@ public class Tarefa implements Serializable {
 		return projeto;
 	}
 
-	public void setProjeto(Object projeto) {
+	public void setProjeto(Projeto projeto) {
 		this.projeto = projeto;
 	}
 

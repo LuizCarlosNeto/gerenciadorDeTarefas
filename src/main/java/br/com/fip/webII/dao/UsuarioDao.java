@@ -21,15 +21,29 @@ public class UsuarioDao {
 	
 	
 	public void salvar(Usuario ususario) {
+//		try {
+//			session = HibernateFactory.getSessionFactory().openSession();
+//			trans = session.beginTransaction();
+//			session.saveOrUpdate(ususario);
+//			trans.commit();
+//			session.flush();
+//		
+//		} catch (Exception e) {
+//			trans.rollback();
+//		}
 		try {
-			session = HibernateFactory.getSessionFactory().openSession();
-			trans = session.beginTransaction();
-			session.saveOrUpdate(ususario);
-			trans.commit();
-			session.flush();
-		
+			EntityManagerFactory factory = Persistence.createEntityManagerFactory("teste");
+
+			EntityManager manager = factory.createEntityManager();
+
+			manager.getTransaction().begin();
+			manager.persist(ususario);
+			manager.getTransaction().commit();
+			manager.close();
+
+			
 		} catch (Exception e) {
-			trans.rollback();
+			e.printStackTrace();
 		}
 		
 	}
@@ -65,17 +79,30 @@ e.printStackTrace();
 		return result;
 	}
 	public void deletar(Usuario usuario) {
+//		try {
+//			session = HibernateFactory.getSessionFactory().getCurrentSession();
+//			trans = session.beginTransaction();
+//			session.delete(usuario);
+//			trans.commit();
+//			session.close();
+//			
+//			
+//		} catch (Exception e) {
+//			trans.rollback();
+//		}
 		try {
-			session = HibernateFactory.getSessionFactory().getCurrentSession();
-			trans = session.beginTransaction();
-			session.delete(usuario);
-			trans.commit();
-			session.close();
-			
-			
-		} catch (Exception e) {
-			trans.rollback();
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("teste");
+
+		EntityManager manager = factory.createEntityManager();
+
+		manager.getTransaction().begin();
+		manager.remove(usuario);
+		manager.getTransaction().commit();
+		manager.close();
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
+
 	}
 	public void atualizar(Usuario usuario) {
 		try {
@@ -88,6 +115,18 @@ e.printStackTrace();
 			
 		} catch (Exception e) {
 			trans.rollback();
+		}
+		
+	}
+	public static void main(String[] args) {
+		try {
+			Usuario ususario = new Usuario();
+			ususario.setNomeUsuario("luiz");
+			ususario.setSenha("22061993");
+			ususario.setEmail("teste");
+			new UsuarioDao().salvar(ususario);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
