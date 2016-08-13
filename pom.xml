@@ -5,11 +5,10 @@
 	<artifactId>gerenciadorDeTarefas</artifactId>
 	<packaging>war</packaging>
 	<version>0010512</version>
-	<url>https://github.com/LuizCarlosNeto/gerenciadorDeTarefas.git</url>
 
 
 	<name>gerenciadorDeTarefas</name>
-
+	<url>http://maven.apache.org</url>
 
 
 
@@ -99,11 +98,6 @@
 		</dependency>
 
 	</dependencies>
-<scm>
-		<url>https://github.com/LuizCarlosNeto/gerenciadorDeTarefas.git</url>
-		<connection>scm:git:git:github.com/LuizCarlosNeto/gerenciadorDeTarefas.git</connection>
-		<developerConnection>scm:git:git@github.com/LuizCarlosNeto/gerenciadorDeTarefas.git</developerConnection>
-	</scm>
 
 
 	<build>
@@ -156,5 +150,11 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 </project>
