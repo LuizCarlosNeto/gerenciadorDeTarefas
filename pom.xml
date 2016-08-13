@@ -4,7 +4,7 @@
 	<groupId>br.com.fip.webII</groupId>
 	<artifactId>gerenciadorDeTarefas</artifactId>
 	<packaging>war</packaging>
-	<version>0010512</version>
+	<version>0010513</version>
 
 
 	<name>gerenciadorDeTarefas</name>
