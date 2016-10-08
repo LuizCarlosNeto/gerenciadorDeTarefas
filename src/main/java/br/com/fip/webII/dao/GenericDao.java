@@ -12,6 +12,8 @@ public abstract class GenericDao {
 	
 	public abstract void salvar(Object object);
 	public abstract void deletar(Object object);
+	public abstract void listar(Object object);
+	
 		
 		
 	
