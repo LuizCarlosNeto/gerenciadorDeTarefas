@@ -19,19 +19,7 @@ public class CategoriaDao {
 	private Transaction trans;
 
 	public void salvar(Categoria categoria) {
-//		try {
-//			
-//			session = HibernateFactory.getSessionFactory().openSession();
-//			trans = session.beginTransaction();
-//			session.saveOrUpdate(categoria);
-//			trans.commit();
-//			session.flush();
-//			session.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			trans.rollback();
-//		}
-//		
+	
 		try {
 			EntityManagerFactory factory = Persistence.createEntityManagerFactory("teste");
 
